@@ -31,6 +31,9 @@ class ProjectsContainerAPI extends React.Component  {
 
 
   render() {
+    this.props.items.map((item) => {
+      
+    })
 
     return (
       <div>
@@ -42,6 +45,7 @@ class ProjectsContainerAPI extends React.Component  {
         {this.props.items.map((item) => {
           if(item.name.toLowerCase().includes(this.state.input.toLowerCase())) {
             if(this.state.input !== '') {
+
               return (
                 <div className={s.mainWrapper}>
                   <div className={s.mainCardWrapper}>
