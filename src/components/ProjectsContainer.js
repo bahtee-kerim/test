@@ -43,7 +43,7 @@ class ProjectsContainerAPI extends React.Component  {
         </div>
 
         {this.props.items.map((item) => {
-          if(item.name.toLowerCase().includes(this.state.input.toLowerCase())) {
+          if(item.name.toLowerCase()[0].includes(this.state.input.toLowerCase())) {
             if(this.state.input !== '') {
 
               return (
