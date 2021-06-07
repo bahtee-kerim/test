@@ -31,9 +31,6 @@ class ProjectsContainerAPI extends React.Component  {
 
 
   render() {
-    this.props.items.map((item) => {
-      
-    })
 
     return (
       <div>
