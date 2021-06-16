@@ -26,8 +26,6 @@ export const getItems = (items) => {
   return {type: GET_ITEMS, items}
 }
 
-let store = createStore(itemsReducer)
-
-window.store = store;
+let store = createStore(itemsReducer);
 
 export default store;

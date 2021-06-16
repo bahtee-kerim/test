@@ -5,7 +5,7 @@ import ProjectsContainer from './components/ProjectsContainer.js';
 const App = (props) => {
   return (
     <div className="App">
-      <ProjectsContainer store={props.store} />
+      <ProjectsContainer state={props.state} />
     </div>
   );
 }

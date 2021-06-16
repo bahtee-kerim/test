@@ -7,25 +7,6 @@
   text-decoration: none;
 }
 
-.inputWrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 4vw;
-}
-
-.inputWrap input {
-  padding: 16px;
-  color: rgba(101, 101, 101, 1);
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 5px 5px 5px 5px rgba(236, 236, 236, 1);
-}
-
-.input {
-  align-self: center;
-}
-
 .mainWrapper {
   display: flex;
   justify-content: center;

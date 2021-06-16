@@ -2,7 +2,8 @@ import React from 'react';
 import  axios from 'axios';
 import { connect } from 'react-redux';
 import {getItems} from './../redux/redux-store';
-import s from './../components/ProjectsContainer.module.css';
+import Projects from './Projects';
+import Input from './Input';
 
 class ProjectsContainerAPI extends React.Component  {
 
@@ -10,8 +11,7 @@ class ProjectsContainerAPI extends React.Component  {
     super();
 
     this.state = {
-      input: '',
-      display: ''
+      input: ''
     }
   }
 
@@ -28,45 +28,25 @@ class ProjectsContainerAPI extends React.Component  {
     })
   }
 
-
-
   render() {
-
     return (
-      <div>
-
-        <div className={s.inputWrap}>
-        <input className={s.input} onChange={this.getInput}  type='text' placeholder='search project'/>
-        </div>
+      <>
+        <Input getInput={this.getInput} state={this.state}/>
 
         {this.props.items.map((item) => {
-          if(item.name.toLowerCase()[0].includes(this.state.input.toLowerCase())) {
+          if(item.name.toLowerCase().startsWith(this.state.input.toLowerCase())) {
             if(this.state.input !== '') {
-
               return (
-                <div className={s.mainWrapper}>
-                  <div className={s.mainCardWrapper}>
-                  <div>
-                    <div className={s.items} style={{display: this.state.display}}>Name: <a href={item.html_url}><div className={s.itemItems}>{item.name}</div></a></div>
-                  </div>
-                  <div>
-                    <div className={s.gazers}>Star gazers: <div className={s.itemGazers}>{item.stargazers_count}</div></div>
-                  </div>
-                  <div>
-                    <div className={s.watchers}>Watchers: <div className={s.itemWatchers}>{item.watchers_count}</div></div>
-                  </div>
-                </div>
-                </div>
+                <Projects  item={item} />
               )
             }
           }
         })}
-      </div>
+        
+      </>
     )
   }
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
@@ -74,8 +54,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps  = {getItems}
+const mapDispatchToProps  = {getItems};
 
-const ProjectsContainer = connect(mapStateToProps, mapDispatchToProps)(ProjectsContainerAPI)
+const ProjectsContainer = connect(mapStateToProps, mapDispatchToProps)(ProjectsContainerAPI);
 
 export default ProjectsContainer;
