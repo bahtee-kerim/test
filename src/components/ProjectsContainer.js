@@ -1,7 +1,7 @@
 import React from 'react';
 import  axios from 'axios';
 import { connect } from 'react-redux';
-import {getItems} from './../redux/redux-store';
+import {setItems} from './../redux/redux-store';
 import Projects from './Projects';
 import Input from './Input';
 
@@ -17,7 +17,7 @@ class ProjectsContainerAPI extends React.Component  {
 
   componentDidMount() {
     axios.get('https://api.github.com/search/repositories?q=subject').then((res) => {
-      this.props.getItems(res.data.items)
+      this.props.setItems(res.data.items)
     })
   }
 
@@ -54,7 +54,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps  = {getItems};
+const mapDispatchToProps  = {setItems};
 
 const ProjectsContainer = connect(mapStateToProps, mapDispatchToProps)(ProjectsContainerAPI);
 

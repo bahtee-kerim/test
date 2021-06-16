@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-const GET_ITEMS = 'GET_ITEMS';
+const SET_ITEMS = 'SET_ITEMS';
 
 
 let initialState = {
@@ -10,7 +10,7 @@ let initialState = {
 const itemsReducer  = (state = initialState, action) => {
   
   switch(action.type) {
-    case GET_ITEMS:
+    case SET_ITEMS:
       return {
         ...state,
         items: action.items
@@ -22,8 +22,8 @@ const itemsReducer  = (state = initialState, action) => {
   
 }
 
-export const getItems = (items) => {
-  return {type: GET_ITEMS, items}
+export const setItems = (items) => {
+  return {type: SET_ITEMS, items}
 }
 
 let store = createStore(itemsReducer);
